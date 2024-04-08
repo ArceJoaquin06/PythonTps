@@ -9,3 +9,10 @@ for inscrip in inscrips:
         frequency[inscrip] = 1
 
 print("Frecuencia  de letras: ", frequency)
+
+"""
+Consigna:
+Intermedio: Durante su expedición, los exploradores encuentran una inscripción
+antigua en un templo. Deben contar la frecuencia de cada letra en la inscripción
+utilizando un diccionario.
+"""

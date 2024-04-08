@@ -9,3 +9,10 @@ for manuscrito in manuscritos:
         frequency[manuscrito] = 1
 
 print(max(frequency, key=frequency.get))
+
+"""
+Consigna:
+Difícil: Los exploradores descubren un manuscrito antiguo y desean encontrar la
+palabra más común en él. Implementa un programa que utilice un diccionario para
+encontrar la palabra con la frecuencia más alta en el texto.
+"""

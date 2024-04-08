@@ -22,3 +22,12 @@ elif preguntas_random == "Hablo sin boca y oigo sin oídos. No tengo cuerpo, per
 
 elif preguntas_random == "Tengo ciudades, pero no casas. Tengo montañas, pero no árboles. Tengo agua, pero no peces. ¿Qué soy?" and respuestas == "Un mapa":
   print('Correcto')
+
+"""
+Consigna:
+Difícil: Los jóvenes se enfrentan a una puerta mágica que solo se abrirá si
+responden correctamente a una serie de adivinanzas. Implementa un juego de
+adivinanzas donde el programa elige aleatoriamente una pregunta y los jóvenes
+deben responder correctamente utilizando condicionales para avanzar en su
+búsqueda.
+"""

@@ -8,3 +8,10 @@ def listas(lista):
   return list_rest
 
 print(listas(lista))
+
+"""
+Consigna:
+Intermedio: Durante su expedición, los aventureros recolectan una variedad de
+cristales preciosos. Sin embargo, descubren que algunos cristales están duplicados
+en su inventario. Deben eliminar los cristales duplicados para tener una lista única.
+"""
