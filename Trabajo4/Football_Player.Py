@@ -25,12 +25,14 @@ class Jugador:
         self.asistencias += int(input("Escribe el número de asistencias de tu jugador: "))
         self.amarillas += int(input("Escribe el número de tarjetas amarillas de tu jugador: "))
         self.rojas += int(input("Escribe el número de tarjetas rojas de tu jugador: "))
-        self.num = 0
-        self.trofeos = 0
-        self.trofeos += int(input("Escribe la cantidad de trofeos de tu jugador: "))
-        while self.num < self.trofeos:
-            self.premios[input("Escibe el equipo con quien ganó: ")] = input("Escribe el premio que ganó: ")
-            self.num += 1
+        self.premios = {}
+        trofeos = int(input("Escribe la cantidad de trofeos de tu jugador: "))
+        for _ in range(trofeos):
+            equipo = input("Escribe el equipo con quien ganó: ")
+            premio = input("Escribe el premio que ganó: ")
+            if equipo not in self.premios:
+                self.premios[equipo] = []
+            self.premios[equipo].append(premio)
         print(f'Los datos de tu jugador son: {self.nombre} de {self.edad} años, juega de {self.posición} en {self.club}, y en {self.país}, usa el {self.número}. Marcó {self.goles} goles y {self.asistencias} asistencias en {self.partidos}, le sacaron {self.amarillas} amarillas y {self.rojas} rojas. Ganó estos premios {self.premios}')
 
     def actualizar_info(self):
@@ -54,10 +56,10 @@ class Jugador:
     def agregar_premio(self):
         preg = input("¿Consiguió algún premio?. Escribe(s/n): ")
         if preg == 's':
-            self.premios[input("Escibe el equipo con quien ganó: ")] = input("Escribe el premio que ganó: ")
-            print(f'Los premios que el jugador ganó son: {self.premios} actualizados')
+            self.premios[input("Escibe el equipo con quien ganó: ")].append(input("Escribe el premio que ganó: "))
+            print(f'Los premios que {self.nombre} ganó son: {self.premios} actualizados')
         elif preg == 'n':
-            print(f'Los premios que el jugador ganó son: {self.premios}')
+            print(f'Los premios que {self.nombre} ganó son: {self.premios}')
         elif preg != 's' and preg != 'n':
             print("Usted escribió una respuesta distinta")
             Jugador.agregar_premio(self)
@@ -66,13 +68,13 @@ class Jugador:
 jugadorI = Jugador(" ", 0, " ", " ", " ", 0, 0, 0, 0, 0, 0 , {})
 jugadorI.agregar_futbolista()
 
-jugador1 = Jugador("Phil Foden", 23, "Extremo", "Manchester City", "Inglaterra", 47, 87, 288, 56, 8, 1, {"Inglaterra":'Campeón del Mundo SUB-17',"Manchester City":'Campeón de la Supercopa de Inglaterra', "Manchester City":'Campeón de la Supercopa de Inglaterra', "Manchester City":'Campeón de la Copa de la Liga de Inglaterra', "Manchester City":'Campeón de la Copa de la Liga de Inglaterra', "Manchester City":'Campeón de la Copa de la Liga de Inglaterra', "Manchester City":'Campeón de la Copa de la Liga de Inglaterra', "Manchester City":'Campeón de la FA Cup de Inglaterra', "Manchester City":'Campeón de la FA Cup de Inglaterra', "Manchester City":'Campeón de la Supercopa de Europa', "Manchester City":'Campeón de Inglaterra', "Manchester City":'Campeón de Inglaterra', "Manchester City":'Campeón de Inglaterra', "Manchester City":'Campeón de Inglaterra', "Manchester City":'Campeón de Inglaterra', "Manchester City":'Campeón del Mundial de Clubes', "Manchester City":'Campeón de la Liga de Campeones'})
+jugador1 = Jugador("Phil Foden", 23, "Extremo", "Manchester City", "Inglaterra", 47, 87, 288, 56, 8, 1, {"Inglaterra":['Campeón del Mundo SUB-17'],"Manchester City":['Campeón de la Supercopa de Inglaterra', 'Campeón de la Supercopa de Inglaterra', 'Campeón de la Copa de la Liga de Inglaterra', 'Campeón de la Copa de la Liga de Inglaterra', 'Campeón de la Copa de la Liga de Inglaterra', 'Campeón de la Copa de la Liga de Inglaterra', 'Campeón de la FA Cup de Inglaterra', 'Campeón de la FA Cup de Inglaterra', 'Campeón de la Supercopa de Europa', 'Campeón de Inglaterra', 'Campeón de Inglaterra', 'Campeón de Inglaterra', 'Campeón de Inglaterra', 'Campeón de Inglaterra', 'Campeón del Mundial de Clubes', 'Campeón de la Liga de Campeones']})
 jugador1.actualizar_info()
 jugador1.goles_partido()
 jugador1.es_goleador()
 jugador1.agregar_premio()
 
-jugador2 = Jugador("Jérémy Doku", 21, "Extremo", "Manchester City", "Bélgica", 11, 29, 186, 30, 11, 2, {"Manchester City":'Campeón del Mundial de Clubes'})
+jugador2 = Jugador("Jérémy Doku", 21, "Extremo", "Manchester City", "Bélgica", 11, 29, 186, 30, 11, 2, {"Manchester City":['Campeón del Mundial de Clubes']})
 jugador2.actualizar_info()
 jugador2.goles_partido()
 jugador2.es_goleador()
