@@ -1,11 +1,23 @@
-import cv2 as cv
+from PIL import Image
+import os
 
-img = cv.imread('Image_B&W.jpg', cv.IMREAD_GRAYSCALE)
+def busqueda_en_imagen(image_path, tono):
+   with Image.open(image_path) as im:
+      image = im.convert("L")
+      pixeles = image.load()
+      ancho, alto = image.size
+      tonos = {}
+      for x in range(ancho):
+         for y in range(alto):
+            color = pixeles[x, y]
+            if color == tono:
+               if color not in tonos:
+                  tonos[color] = []
+               tonos[color].append((x, y))
+      if tonos:      
+         return tonos
+      else:
+         return "No se encuentra este tono"
 
-def busqueda_en_imagen(image, tono):
-   for lista in range(image):
-      for j in range(lista):
-          if lista[j] == tono:
-             return "Las cordenadas son (" + lista + "," + j + ")"
-          
-busqueda_en_imagen()
+tono_buscado = int(input("Ingresa un número entero y buscaremos ese tono: "))
+print(busqueda_en_imagen("image.jpg", tono_buscado))
