@@ -1,5 +1,6 @@
 from PIL import Image
 import os
+import time
 
 def busqueda_en_imagen(image_path, tono):
    with Image.open(image_path) as im:
@@ -20,4 +21,11 @@ def busqueda_en_imagen(image_path, tono):
          return "No se encuentra este tono"
 
 tono_buscado = int(input("Ingresa un número entero y buscaremos ese tono: "))
-print(busqueda_en_imagen("image.jpg", tono_buscado))
+
+start_time = time.time()
+rest = busqueda_en_imagen("image.jpg", tono_buscado)
+finish_time = time.time()
+time_rest = finish_time - start_time
+
+print(rest)
+print(f"Tiempo de ejecución: {time_rest:.4f} segundos")
