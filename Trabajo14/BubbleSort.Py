@@ -15,3 +15,5 @@ def bubblesort(list, i=0, j=0):
 list = [4, 2, 3, 1, 6, 5]
 bubblesort(list)
 print(list)
+
+#Para probar: [5, 3.14, 7, 2.7, 9, 0.9, 4, 1.6, 6, 8.5]

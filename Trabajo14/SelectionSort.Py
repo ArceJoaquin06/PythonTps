@@ -22,3 +22,5 @@ def find_x(list, j, x, n):
 list = [4, 2, 3, 1, 7, 5, 6]
 selectionsort(list)
 print(list)
+
+#Para probar: [45, 9.9, 0.09, 23, 7.4, 11, 33.3, 18.4, 27, 0.1]
